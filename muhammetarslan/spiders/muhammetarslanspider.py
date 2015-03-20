@@ -50,12 +50,10 @@ class Muhammetarslanspider(CrawlSpider):
 
         	id = id.pop().strip()
         	title = sel.xpath('//h1[@class="heading"]//a/text()').extract().pop().strip()
-        	description = sel.xpath('//div[@class="entry"]').extract()
+        	description = sel.xpath('//div[@class="entry"]').extract().pop().strip()
 
         	item["post_id"] = id
         	item['title'] = title
         	item['description'] = description
-
-        	print item
 
         	yield item
